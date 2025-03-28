@@ -39,7 +39,7 @@ describe("getLonger", () => {
 
 })
 
-xdescribe("greet", () => {
+describe("greet", () => {
 
     it("Exists", () => {
         expect(greet).toBeDefined();
@@ -69,7 +69,7 @@ xdescribe("greet", () => {
 
 })
 
-xdescribe("isSubstring", () => {
+describe("isSubstring", () => {
 
     it("Exists", () => {
         expect(isSubstring).toBeDefined();
