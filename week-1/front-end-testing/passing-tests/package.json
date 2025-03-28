@@ -2,7 +2,8 @@
     "scripts": {
         "test": "jest --verbose",
         "number-test": "jest --verbose numberFunctions.test.js",
-        "string-test": "jest --verbose stringFunctions.test.js"
+        "string-test": "jest --verbose stringFunctions.test.js",
+        "coverage": "jest --coverage"
     },
     "devDependencies": {
         "jest": "^28.1.3",

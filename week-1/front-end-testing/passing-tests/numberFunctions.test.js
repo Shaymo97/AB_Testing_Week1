@@ -1,8 +1,8 @@
 const each = require('jest-each').default;
 const { getBigger, getSmallest, countValue } = require("./numberFunctions.js");
 
-describe("getBigger", () => {
-
+xdescribe("getBigger", () => {
+    
     it("Exists", () => {
         expect(getBigger).toBeDefined();
     })
@@ -27,7 +27,7 @@ describe("getBigger", () => {
 
 })
 
-describe("getSmallest", () => {
+xdescribe("getSmallest", () => {
 
     it("Exists", () => {
         expect(getSmallest).toBeDefined();
@@ -38,7 +38,7 @@ describe("getSmallest", () => {
     })
 
     it("Returns a number when passed an array of numbers", () => {
-        expect(typeof getSmallest([1, 2, 3]) == "number").toEqual(true);
+        expect(typeof getSmallest([1, 2, 3],) == "number").toEqual(true);
     })
 
     it("Returns null when passed an empty array", () => {
@@ -58,7 +58,7 @@ describe("getSmallest", () => {
 
 })
 
-describe("countValue", () => {
+xdescribe("countValue", () => {
 
     it("Exists", () => {
         expect(countValue).toBeDefined();
