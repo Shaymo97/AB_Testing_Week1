@@ -1,0 +1,17 @@
+{
+  "name": "taster-se",
+  "version": "1.0.0",
+  "description": "This folder contains resources (including exemplars, instructions, and starter code) for the **Software Engineering** Taster Day.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-each": "^29.7.0"
+  }
+}
+ 

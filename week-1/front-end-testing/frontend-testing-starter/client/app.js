@@ -1,10 +1,10 @@
 
-const btn = document.querySelector('button');
+const btn = document.querySelector('button'); //This grabs the first node element that matches this selector i.e. first button
 const form = document.querySelector('form');
 const darkModeBtn = document.querySelector('#dark-mode');
 
 
-const changeTitle = () => {
+const changeTitle = () => { 
   const h1 = document.querySelector('h1');
   h1.textContent = 'morning';
 }
@@ -20,7 +20,7 @@ const updateTitle = (e) => {
 
 const changeMode = () => {
   document.querySelector('body')
-    .classList.add('dark-mode');
+    .classList.toggle('dark-mode');
 }
 
 btn.addEventListener('click', changeTitle)
