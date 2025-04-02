@@ -1,4 +1,10 @@
-const prompt = require('prompt-sync')();
+let prompt;
+try {
+    prompt = require('prompt-sync')();
+} catch (e) {
+    console.log("prompt-sync is not installed. Run `npm i prompt-sync` to download it.");
+    process.exit(1);
+}
 
 class Player {
     static move = ['rock','paper','scissors']
@@ -36,6 +42,7 @@ class Game {
     
     startGame() {
         console.log('\x1b[33m%s\x1b[0m',"It's time to play the gaaaaaaame! To see the game rules, enter 'rules'. To quit the game enter 'quit'")
+        let userName = prompt("What's your name? ")
         while(true) {
             let userMove = prompt(`Enter rock / paper / scissors: `).toLowerCase();
             
@@ -44,7 +51,9 @@ class Game {
             }
 
             if(userMove === "rules") {
-                console.log('\x1b[33m%s\x1b[0m',"The rules of the game are simple: rock beats scissors, scissors beats paper and paper beats rock")
+                console.log('\x1b[33m%s\x1b[0m',"The rules of the game are simple: Input either rock / paper / scissors. The computer will also input a move.")
+                console.log('\x1b[33m%s\x1b[0m',"Rock beats scissors, scissors beats paper and paper beats rock.")
+                console.log('\x1b[33m%s\x1b[0m',"If you want to quit the game, type in 'quit'.")
                 continue
             }
 
@@ -53,8 +62,7 @@ class Game {
                 continue
             }
 
-            
-            let human = new HumanPlayer("Player", userMove)
+            let human = new HumanPlayer(userName, userMove)
             let computer = new ComputerPlayer()
             let computerMove = computer.computerMove()
 
@@ -67,24 +75,17 @@ class Game {
                 (human.move === "paper" && computerMove  === "rock") || 
                 (human.move === "scissors" && computerMove  === "paper"))
                 {
-                    console.log('\x1b[32m%s\x1b[0m',"Human wins")
+                    console.log('\x1b[32m%s\x1b[0m',`${userName} wins!`)
                     this.playerScore++     
                 }   else {
-                    console.log('\x1b[31m%s\x1b[0m',"Computer wins")
+                    console.log('\x1b[31m%s\x1b[0m',"Computer wins!")
                     this.computerScore++
                 }
-                console.log(`The score is: Player ${this.playerScore} - ${this.computerScore} Computer`)
+                console.log(`The score is: ${userName} ${this.playerScore} - ${this.computerScore} Computer`)
+                console.log(`__________________________________________________________`)
             } 
         }
     }
-
-        
-
-
-
-
-const shayann = new HumanPlayer("shayann", `Rock`)
-
 
 
 game = new Game()
