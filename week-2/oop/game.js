@@ -1,9 +1,9 @@
-let prompt;
+let prompt
 try {
     prompt = require('prompt-sync')();
 } catch (e) {
-    console.log("prompt-sync is not installed. Run `npm i prompt-sync` to download it.");
-    process.exit(1);
+    console.log("prompt-sync is not installed. Run `npm i prompt-sync` to download it.")
+    process.exit(1)
 }
 
 class Player {
