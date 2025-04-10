@@ -19,7 +19,8 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     const data = await response.json();
 
     if (response.status == 200) {
-        alert("Logged in!");
+        localStorage.setItem("token", data.token) // Name of data being stored, value of data being stored
+        window.location.assign("board.html")
     } else {
         alert(data.error);
     }

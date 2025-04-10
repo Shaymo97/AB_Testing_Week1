@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "seed-db": "node ./database/setup.js"
+    "seed-db": "node ./database/setup.js",
+    "test": "jest --watchAll --verbose --detectOpenHandles --runInBand",
+    "coverage": "jest --coverage",
+    "setup-test-db": "NODE_ENV=test node ./database/setup.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +22,13 @@
     "pg": "^8.11.3"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^7.1.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns":["./__test__/integration/config.js"]
   }
 }
+
+ 

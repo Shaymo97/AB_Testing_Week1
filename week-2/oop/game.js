@@ -3,7 +3,7 @@ try {
     prompt = require('prompt-sync')();
 } catch (e) {
     console.log("prompt-sync is not installed. Run `npm i prompt-sync` to download it.")
-    process.exit(1)
+    process.exit()
 }
 
 class Player {
@@ -42,7 +42,6 @@ class Game {
     
     startGame() {
         console.log('\x1b[33m%s\x1b[0m',"It's time to play the gaaaaaaame! To see the game rules, enter 'rules'. To quit the game enter 'quit'")
-        let userName = prompt("What's your name? ")
         while(true) {
             let userMove = prompt(`Enter rock / paper / scissors: `).toLowerCase();
             
@@ -62,7 +61,7 @@ class Game {
                 continue
             }
 
-            let human = new HumanPlayer(userName, userMove)
+            let human = new HumanPlayer("Player", userMove)
             let computer = new ComputerPlayer()
             let computerMove = computer.computerMove()
 
@@ -75,13 +74,13 @@ class Game {
                 (human.move === "paper" && computerMove  === "rock") || 
                 (human.move === "scissors" && computerMove  === "paper"))
                 {
-                    console.log('\x1b[32m%s\x1b[0m',`${userName} wins!`)
+                    console.log('\x1b[32m%s\x1b[0m',`Player wins!`)
                     this.playerScore++     
                 }   else {
                     console.log('\x1b[31m%s\x1b[0m',"Computer wins!")
                     this.computerScore++
                 }
-                console.log(`The score is: ${userName} ${this.playerScore} - ${this.computerScore} Computer`)
+                console.log(`The score is: Player ${this.playerScore} - ${this.computerScore} Computer`)
                 console.log(`__________________________________________________________`)
             } 
         }
@@ -96,7 +95,7 @@ game.startGame()
 /**
  * Create 3 classes for player, humanplayer and computerplayer
  * Create a `Game` class that handles game logic
- * I want to be able to inpiut into HumanPlayer a move - Either rock/ scissors / paper
+ * I want to be able to input into HumanPlayer a move - Either rock/ scissors / paper
  * The computer will also randomly choose a move
  * If HumanPlayer chooses rock and Computer chooses scissors, human wins.
  * 

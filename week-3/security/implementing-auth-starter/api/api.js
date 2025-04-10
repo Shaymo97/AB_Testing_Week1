@@ -8,7 +8,7 @@ const userRouter = require('./routers/user');
 const api = express();
 
 api.use(cors());
-api.use(express.json());
+api.use(express.json()); // Converts JSON data into JS
 api.use(logRoutes);
 
 api.get("/", (req, res) => {
